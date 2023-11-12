@@ -1,5 +1,18 @@
 const canvas = document.getElementById('gameCanvas');
+const startButton = document.getElementById('startButton');
 const ctx = canvas.getContext('2d');
+
+function startGame() {
+    carX = 225;
+    carY = 320;
+    enemies = [];
+    gameOver = false;
+    startButton.style.display = 'none'; // Ocultar el botón de inicio
+    update(); // Iniciar el juego
+}
+
+startButton.addEventListener('click', startGame);
+
 
 // Car variables
 let carX = 225;
@@ -99,6 +112,14 @@ function drawBackground() {
         backgroundY = 0;
     }
 
+        // Reducción de la velocidad de las líneas
+        lineSpeed -= 0.0001;
+        if (lineSpeed < 0.05) {
+            lineSpeed = 0.05;
+        }
+    
+        setTimeout(() => requestAnimationFrame(drawBackground), lineSpeed);
+
     requestAnimationFrame(drawBackground);
 }
 
@@ -129,10 +150,8 @@ function update() {
     } else {
         ctx.fillStyle = 'black';
         ctx.font = '30px Arial';
-        ctx.
         ctx.fillText('Game Over', canvas.width / 2 - 70, canvas.height / 2);
         // Mostrar el botón de reinicio
-        const restartButton = document.getElementById('restartButton');
         restartButton.style.display = 'block';
     }
 } 
@@ -146,11 +165,14 @@ document.addEventListener('keydown', function(event) {
             carX -= 10;
         } else if (event.key === 'ArrowRight' && carX < canvas.width - carWidth) {
             carX += 10;
-        } else if (event.key === 'ArrowRight' && carY < canvas.height - carHeight) {
-            carY += 10
+        } else if (event.key === 'ArrowUp' && carY > 0) {
+            carY -= 10; // Ajusta la posición hacia arriba
+        } else if (event.key === 'ArrowDown' && carY < canvas.height - carHeight) {
+            carY += 10; // Ajusta la posición hacia abajo
         }
     }
 });
+
 
 // Agregar la lógica para reiniciar el juego al presionar el botón de reinicio
 const restartButton = document.getElementById('restartButton');
@@ -165,8 +187,3 @@ restartButton.addEventListener('click', function() {
 
     update(); // Reiniciar el juego
 });
-
-//Al juego le hace falta:
-//  - Fondo
-//  - Arreglar divisiones de la carretera
-//  - Añadir imágenes a carros
