@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física</title>
+    <!-- Enlace al archivo CSS de Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!-- Header -->
+  <header class="bg-blue-500 text-white py-4">
+    <div class="container mx-auto">
+      <h1 class="text-2xl font-bold outline-4 outline-blue-100">Página Física</h1>
+    </div>
+  </header>
+
+
+<!-- GAME -->
+  <div class="flex justify-center flex-col items-center h-[84vh]">
+    <button class="text-3xl mb-5 text-zinc-700 font-medium border-2 border-blue-400 rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center ">Evita estrellar</button>
+    <div class="w-auto flex justify-center mx-5">
+      <button id="restartButton" style="display: none;" class="border-2 border-blue-400 rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center">Reiniciar</button>
+    </div>
+    <canvas id="gameCanvas" width="500" height="400"></canvas>
+    <script src="game-mrua.js"></script>
+  </div>
+
+
+
+
+<!-- Footer -->
+  <footer class="bg-gray-300 text-gray-700 py-4">
+    <div class="container mx-auto text-center">
+      <p>Derechos de autor &copy; 2023 - Mi Sitio</p>
+    </div>
+  </footer>
+</body>
+</html>
