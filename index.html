@@ -1,90 +1,126 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Física</title>
-  <!-- Enlace al archivo CSS de Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Disparo de Bala con Gravedad</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+
+    #message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
-  <!-- Header -->
-  <header class="bg-blue-500 text-white py-4">
-    <div class="container mx-auto">
-      <a href="/index.html">
-        <h1 class="text-2xl font-bold outline-4 outline-blue-100">Página Física</h1>
-      </a>
-    </div>
-  </header>
+<body>
+  <canvas id="myCanvas" width="800" height="400"></canvas>
+  <div id="message"></div>
+  <script>
 
+window.onload = function() {
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  const messageDiv = document.getElementById("message");
 
-  <!-- Cuerpo -->
-  <div class="container mx-auto py-8">
-    <h2 class="text-2xl font-bold mb-4">Contenido Principal</h2>
-    <div class="flex justify-center gap-2">
-        <a class="border-2 border-blue-400 p-3 rounded-l-full hover:bg-blue-600 hover:text-white active:bg-blue-700 transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href="MRUA/mrua.html""> <button >Ingrese al juego de MRUA</button> </a>
-        <a class="border-2 border-blue-400 p-3 hover:bg-blue-600 hover:text-white active:bg-blue-700 focus:outline-none transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href=""> <button>Ingrese al juego de Movimiento parabólico</button></a>
-        <a class="border-2 border-blue-400 p-3 rounded-r-full hover:bg-blue-600 hover:text-white active:bg-blue-700 focus:outline-none focus:border-violet-300 transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href=""> <abutton>Ingrese al juego de Caida libre</abutton></a>
-    </div>
-    
-    <hr class="my-8">
+  const hoop = {
+    x: canvas.width - 100,
+    y: canvas.height - 200,
+    radius: 30,
+    color: "orange"
+  };
 
-  <!-- Información cada propiedad física -->
-    <div class="container mx-auto py-8">
-        <div class="">
-            <h2 class="text-2xl font-bold mb-4 text-center">Movimiento rectilineo uniformemente acelerado (MRUA)</h2>
-            <p>
-                El movimiento rectilíneo uniformemente acelerado (MRUA) es un tipo de movimiento en una dimensión (es decir, a lo largo de una línea recta) en el que un objeto se mueve a lo largo de esa línea recta con aceleración constante. <br>
-                En el MRUA, la aceleración es constante, lo que significa que la velocidad del objeto cambia a una tasa constante en el tiempo. Esto se diferencia del movimiento rectilíneo uniforme (MRU), donde la velocidad es constante y no hay aceleración. <br> <br>
-                <strong class="text-lg">Las características principales del MRUA son:</strong> <br>
+  let ball = {
+    x: 50,
+    y: canvas.height - 30,
+    radius: 5,
+    speedX: 0,
+    speedY: 0,
+    gravity: 0.2,
+    isShot: false
+  };
 
-                <strong>Aceleración constante:</strong>El objeto experimenta una aceleración constante a lo largo de su movimiento. La aceleración es la tasa de cambio de la velocidad en relación con el tiempo. <br>
+  canvas.addEventListener("mousedown", function(event) {
+    if (!ball.isShot) {
+      ball.x = event.clientX - canvas.offsetLeft;
+      ball.y = event.clientY - canvas.offsetTop;
+      ball.speedX = 5;
+      ball.speedY = -5;
+      ball.isShot = true;
+      messageDiv.style.display = "none";
+      draw();
+    }
+  });
 
-                <strong>Variación de la velocidad:</strong>A diferencia del MRU, donde la velocidad es constante, en el MRUA la velocidad del objeto varía constantemente debido a la aceleración. <br>
+  function drawHoop() {
+    ctx.beginPath();
+    ctx.arc(hoop.x, hoop.y, hoop.radius, 0, Math.PI * 2);
+    ctx.fillStyle = hoop.color;
+    ctx.fill();
+    ctx.closePath();
+  }
 
-                <strong>Equaciones del movimiento:</strong>Para describir el movimiento en el MRUA, se utilizan ecuaciones específicas, como la ecuación de velocidad y la ecuación de posición en función del tiempo.
-            <p>
-        </div>
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "brown";
+    ctx.fill();
+    ctx.closePath();
+  }
 
-        <hr class="my-8">
+  function updateBall() {
+    if (ball.isShot) {
+      ball.x += ball.speedX;
+      ball.y += ball.speedY;
+      ball.speedY += ball.gravity;
 
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold mb-4 text-center">Movimiento parabólico</h2>
-            <p>       
-                El movimiento parabólico es un tipo de movimiento bidimensional que sigue una trayectoria en forma de parábola. Se produce cuando un objeto es lanzado en un ángulo con respecto a la horizontal y experimenta únicamente la fuerza gravitatoria. Dos componentes fundamentales definen el movimiento parabólico: la componente horizontal y la componente vertical. <br> <br>
-                <strong class="text-lg">Componentes del Movimiento Parabólico:</strong> <br>
+      if (
+        ball.x + ball.radius > hoop.x - hoop.radius &&
+        ball.x - ball.radius < hoop.x + hoop.radius &&
+        ball.y + ball.radius > hoop.y - hoop.radius &&
+        ball.y - ball.radius < hoop.y + hoop.radius
+      ) {
+        // La bola ha pasado por el aro
+        ball.isShot = false;
+        showMessage("¡Encestaste!");
+      }
 
-                <strong>Componente Horizontal:</strong> En este componente, el objeto sigue un movimiento uniforme. La velocidad horizontal es constante y no experimenta aceleración debido a la falta de fuerzas horizontales. <br>
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        // Rebote en el eje Y
+        ball.speedY = -ball.speedY * 0.7;
+      }
 
-                <strong>Componente Vertical:</strong> La fuerza gravitatoria actúa solo en la dirección vertical. El objeto proyectado tiene una velocidad inicial en dirección vertical y, debido a la gravedad, experimenta una aceleración hacia abajo.<br> <br>
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        // Rebote en el eje X
+        ball.speedX = -ball.speedX * 0.7;
+      }
+    }
+  }
 
-                La combinación de estas dos componentes (horizontal y vertical) resulta en una trayectoria parabólica. La velocidad horizontal constante permite que el objeto se desplace horizontalmente a una velocidad constante. Simultáneamente, la velocidad vertical disminuye a medida que el objeto alcanza la altura máxima, donde la velocidad vertical es momentáneamente cero, y luego comienza a descender debido a la aceleración gravitatoria.
-            <p>
-        </div>
+  function showMessage(msg) {
+    messageDiv.innerHTML = msg;
+    messageDiv.style.display = "block";
+  }
 
-        <hr class="my-8">
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawHoop();
+    drawBall();
+    updateBall();
 
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold mb-4 text-center">Caída libre</h2>
-            <p>       
-                El movimiento parabólico es un tipo de movimiento bidimensional que sigue una trayectoria en forma de parábola. Se produce cuando un objeto es lanzado en un ángulo con respecto a la horizontal y experimenta únicamente la fuerza gravitatoria. Dos componentes fundamentales definen el movimiento parabólico: la componente horizontal y la componente vertical. <br> <br>
-                <strong class="text-lg">Componentes del Movimiento Parabólico:</strong> <br>
+    if (ball.isShot) {
+      requestAnimationFrame(draw);
+    }
+  }
 
-                <strong>Componente Horizontal:</strong> En este componente, el objeto sigue un movimiento uniforme. La velocidad horizontal es constante y no experimenta aceleración debido a la falta de fuerzas horizontales. <br>
+  draw();
+};
 
-                <strong>Componente Vertical:</strong> La fuerza gravitatoria actúa solo en la dirección vertical. El objeto proyectado tiene una velocidad inicial en dirección vertical y, debido a la gravedad, experimenta una aceleración hacia abajo.<br> <br>
-
-                La combinación de estas dos componentes (horizontal y vertical) resulta en una trayectoria parabólica. La velocidad horizontal constante permite que el objeto se desplace horizontalmente a una velocidad constante. Simultáneamente, la velocidad vertical disminuye a medida que el objeto alcanza la altura máxima, donde la velocidad vertical es momentáneamente cero, y luego comienza a descender debido a la aceleración gravitatoria.
-            <p>
-        </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-gray-300 text-gray-700 py-4">
-    <div class="container mx-auto text-center">
-      <p>Derechos de autor &copy; 2023 - Mi Sitio</p>
-    </div>
-  </footer>
+  </script>
 </body>
 </html>
