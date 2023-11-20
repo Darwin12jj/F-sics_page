@@ -1,116 +1,390 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Física</title>
-  <!-- Enlace al archivo CSS de Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 h-screen flex flex-col">
-  <!-- Header -->
-  <header class="bg-blue-500 text-white py-4">
-    <div class="container mx-auto">
-      <a href="/index.html">
-        <h1 class="text-2xl font-bold outline-4 outline-blue-100">Página Física</h1>
-      </a>
-    </div>
-  </header>
-
-
-  <div class="max-h-screen">
-      <!-- Cuerpo -->
-    <div class="container mx-auto py-8">
-      <h2 class="text-2xl font-bold mb-4">Contenido Principal</h2>
-      <div class="flex justify-center gap-2">
-          <a class="border-2 border-blue-400 p-3 rounded-l-full hover:bg-blue-600 hover:text-white active:bg-blue-700 transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href="MRUA/mrua.html""> <button >Ingrese al juego de MRUA</button> </a>
-          <a class="border-2 border-blue-400 p-3 hover:bg-blue-600 hover:text-white active:bg-blue-700 focus:outline-none transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href="Movimiento parabólico/mp.html"> <button>Ingrese al juego de Movimiento parabólico</button></a>
-          <a class="border-2 border-blue-400 p-3 rounded-r-full hover:bg-blue-600 hover:text-white active:bg-blue-700 focus:outline-none focus:border-violet-300 transition ease-in-out delay-75 hover:-translate-y-1 duration-300" href="Caída libre/caida_libre.html"> <abutton>Ingrese al juego de Caida libre</abutton></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Física</title>
+    <!-- Enlace al archivo CSS de Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-blue-500 text-white py-4">
+      <div
+        class="container mx-auto flex items-center"
+        style="justify-content: space-between"
+      >
+        <a href="/index.html" class="block">
+          <h1 class="text-2xl font-bold outline-4 outline-blue-100">
+            Página Física
+          </h1>
+        </a>
+        <a href="https://teinco.edu.co/">
+          <img
+            src="Imgs/teinco_logo.png"
+            alt="teinco_logo"
+            class="rounded-full w-50"
+          />
+        </a>
       </div>
-      
-      <hr class="my-8">
+    </header>
 
+    <div class="max-h-screen">
+      <!-- Cuerpo -->
+      <div class="container mx-auto py-8">
+        <h2 class="text-2xl font-bold mb-4">Contenido Principal</h2>
+        <div class="flex justify-center gap-2">
+          <a
+            class="border-2 border-blue-400 p-3 rounded-l-full hover:bg-blue-400 hover:text-white active:bg-blue-500 transition ease-in-out delay-75 hover:-translate-y-1 duration-300"
+            href="MRUA/mrua.html"
+          >
+            <button>Ingrese al juego de M.R.U.A.</button>
+          </a>
+          <a
+            class="border-2 border-blue-400 p-3 hover:bg-blue-400 hover:text-white active:bg-blue-500 focus:outline-none transition ease-in-out delay-75 hover:-translate-y-1 duration-300"
+            href="Movimiento parabólico/mp.html"
+          >
+            <button>Ingrese al juego de Movimiento Parabólico</button></a
+          >
+          <a
+            class="border-2 border-blue-400 p-3 rounded-r-full hover:bg-blue-400 hover:text-white active:bg-blue-500 focus:outline-none focus:border-violet-300 transition ease-in-out delay-75 hover:-translate-y-1 duration-300"
+            href="Caída libre/caida_libre.html"
+          >
+            <abutton>Ingrese al juego de Caida Libre</abutton></a
+          >
+        </div>
+
+        <hr class="mt-10" />
+      </div>
     </div>
-  </div>
 
     <!-- Información cada propiedad física -->
 
-    <div class="max-w-screen-xl h-fit">
-      <div class="grid divide-y divide-neutral-200 max-w-5xl mx-auto mt-8">
-        <div class="py-5">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-              <span class="text-gray-500"> Movimiento rectilineo uniformemente acelerado (MRUA)</span>
-              <span class="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-    </svg>
-                  </span>
-            </summary>
-            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn"></p>
-              El movimiento rectilíneo uniformemente acelerado (M.R.U.A.) es un tipo de movimiento en una dimensión (es decir, a lo largo de una línea recta) en el que un objeto se mueve a lo largo de esa línea recta con aceleración constante. <br>
-              En el MRUA, la aceleración es constante, lo que significa que la velocidad del objeto cambia a una tasa constante en el tiempo. Esto se diferencia del movimiento rectilíneo uniforme (MRU), donde la velocidad es constante y no hay aceleración. <br> <br>
-              <strong class="text-lg">Las características principales del MRUA son:</strong> <br>
+    <div class="flex justify-center mb-5 min-w-[100%]">
+      <div class="flex items-center justify-center md:min-w-[100%]">
+        <div class="flex flex-col items-center justify-center">
+          <div
+            class="mx-15 px-5 py-5 md:min-w-[80rem] hover:bg-blue-200 transition-all hover:rounded-3xl"
+          >
+            <details
+              class="group flex flex-col items-center justify-center max-w-100 rounded-xl"
+            >
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none transition-all"
+              >
+                <span class="text-gray-500">
+                  Movimiento rectilineo uniformemente acelerado (MRUA)</span
+                >
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="group-open:animate-fadeIn md:max-w-100 transition-all md:max-w-[75rem] flex flex-col bg-gray-100"
+              >
+                <p
+                  class="text-neutral-600 mt-3 group-open:animate-fadeIn p-5 rounded"
+                >
+                  El Movimiento Rectilíneo Uniformemente Acelerado (MRUA) es un
+                  tipo de movimiento en una dimensión donde un objeto se
+                  desplaza a lo largo de una línea recta con aceleración
+                  constante. Sus características principales son: <br />
+                  <br />
 
-              <strong>Aceleración constante:</strong>El objeto experimenta una aceleración constante a lo largo de su movimiento. La aceleración es la tasa de cambio de la velocidad en relación con el tiempo. <br>
+                  <strong>Aceleración constante:</strong> <br />
+                  Durante el MRUA, el objeto experimenta una aceleración
+                  constante. La aceleración es la tasa de cambio de la velocidad
+                  en relación con el tiempo. <br />
 
-              <strong>Variación de la velocidad:</strong>A diferencia del MRU, donde la velocidad es constante, en el MRUA la velocidad del objeto varía constantemente debido a la aceleración. <br>
+                  <strong>Variación de la velocidad:</strong> <br />A diferencia
+                  del Movimiento Rectilíneo Uniforme (MRU), donde la velocidad
+                  es constante, en el MRUA la velocidad del objeto varía
+                  constantemente debido a la aceleración.<br />
+                  <br />
 
-              <strong>Equaciones del movimiento:</strong>Para describir el movimiento en el MRUA, se utilizan ecuaciones específicas, como la ecuación de velocidad y la ecuación de posición en función del tiempo.
-          <p>
-          </details>
-        </div>
-        <div class="py-5">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-              <span class="text-slate-500"> Movimiento parabólico</span>
-              <span class="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-    </svg>
-                  </span>
-            </summary>
-            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn"></p>>       
-              El movimiento parabólico es un tipo de movimiento bidimensional que sigue una trayectoria en forma de parábola. Se produce cuando un objeto es lanzado en un ángulo con respecto a la horizontal y experimenta únicamente la fuerza gravitatoria. Dos componentes fundamentales definen el movimiento parabólico: la componente horizontal y la componente vertical. <br> <br>
-              <strong class="text-lg">Componentes del Movimiento Parabólico:</strong> <br>
+                  <strong>Equaciones del movimiento:</strong> <br />
+                  Para describir este tipo de movimiento, se utilizan ecuaciones
+                  específicas que relacionan la posición, la velocidad y el
+                  tiempo. Algunas de estas ecuaciones incluyen la ecuación de
+                  velocidad y la ecuación de posición en función del tiempo.
+                </p>
 
-              <strong>Componente Horizontal:</strong> En este componente, el objeto sigue un movimiento uniforme. La velocidad horizontal es constante y no experimenta aceleración debido a la falta de fuerzas horizontales. <br>
+                <button
+                  id="openModal"
+                  class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all m-5"
+                >
+                  Abrir imagen
+                </button>
 
-              <strong>Componente Vertical:</strong> La fuerza gravitatoria actúa solo en la dirección vertical. El objeto proyectado tiene una velocidad inicial en dirección vertical y, debido a la gravedad, experimenta una aceleración hacia abajo.<br> <br>
+                <!-- Modal -->
+                <div
+                  id="modal"
+                  class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50 hidden"
+                >
+                  <div class="bg-white p-8 rounded shadow-lg flex flex-col justify-center align-center">
+                    <div class="flex justify-end">
+                      <!-- Botón para cerrar el modal -->
+                      <button
+                        id="closeModal"
+                        class="text-gray-800 hover:text-gray-600 focus:outline-none"
+                      >
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="mt-4">
+                      <!-- Contenido del modal -->
+                      <img src="/Imgs/PROTOCOLO_MRUA_1.png" alt="Protocolo MRUA" class="w-[50rem]">
+                    </div>
 
-              La combinación de estas dos componentes (horizontal y vertical) resulta en una trayectoria parabólica. La velocidad horizontal constante permite que el objeto se desplace horizontalmente a una velocidad constante. Simultáneamente, la velocidad vertical disminuye a medida que el objeto alcanza la altura máxima, donde la velocidad vertical es momentáneamente cero, y luego comienza a descender debido a la aceleración gravitatoria.
-          <p>
-          </details>
-        </div>
-        <div class="py-5">
-          <details class="group">
-            <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-              <span class="text-slate-500"> Movimiento parabólico</span>
-              <span class="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-    </svg>
-                  </span>
-            </summary>
-            <p class="text-neutral-600 mt-3 group-open:animate-fadeIn"></p>>       
-              El movimiento parabólico es un tipo de movimiento bidimensional que sigue una trayectoria en forma de parábola. Se produce cuando un objeto es lanzado en un ángulo con respecto a la horizontal y experimenta únicamente la fuerza gravitatoria. Dos componentes fundamentales definen el movimiento parabólico: la componente horizontal y la componente vertical. <br> <br>
-              <strong class="text-lg">Componentes del Movimiento Parabólico:</strong> <br>
 
-              <strong>Componente Horizontal:</strong> En este componente, el objeto sigue un movimiento uniforme. La velocidad horizontal es constante y no experimenta aceleración debido a la falta de fuerzas horizontales. <br>
+                    <script>
+                      const openModal = document.getElementById("openModal");
+                      const closeModal = document.getElementById("closeModal");
+                      const modal = document.getElementById("modal");
+                
+                      openModal.addEventListener("click", () => {
+                        modal.classList.remove("hidden");
+                      });
+                
+                      closeModal.addEventListener("click", () => {
+                        modal.classList.add("hidden");
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+          <div
+            class="mx-15 px-5 py-5 md:min-w-[80rem] hover:bg-blue-200 transition-all hover:rounded-3xl"
+          >
+            <details
+              class="group flex flex-col items-center justify-center max-w-100 rounded-xl"
+            >
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none transition-all"
+              >
+                <span class="text-gray-500">
+                  Movimiento Parabólico</span
+                >
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="group-open:animate-fadeIn md:max-w-100 transition-all md:max-w-[75rem] flex flex-col bg-gray-100"
+              >
+                <p
+                  class="text-neutral-600 mt-3 group-open:animate-fadeIn p-5 rounded"
+                >
+                El <strong>movimiento parabólico</strong> es un tipo de desplazamiento bidimensional que sigue una trayectoria en forma de parábola. Este fenómeno se presenta cuando un objeto es lanzado con un ángulo con respecto a la horizontal y está sujeto únicamente a la fuerza gravitatoria. 
+                <br>
+                <br>
+                <strong>Se divide en dos componentes principales:</strong> <br>La horizontal, donde el objeto se mueve uniformemente sin aceleración, y la vertical, donde la fuerza gravitatoria provoca una aceleración hacia abajo. La combinación de estas dos componentes da lugar a una trayectoria parabólica, donde la velocidad vertical disminuye en la altura máxima y el objeto desciende debido a la aceleración gravitatoria.
+                </p>
+                <button
+                  id="openModal2"
+                  class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all m-5"
+                >
+                  Abrir imagen
+                </button>
 
-              <strong>Componente Vertical:</strong> La fuerza gravitatoria actúa solo en la dirección vertical. El objeto proyectado tiene una velocidad inicial en dirección vertical y, debido a la gravedad, experimenta una aceleración hacia abajo.<br> <br>
+                <!-- Modal -->
+                <div
+                  id="modal2"
+                  class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50 hidden"
+                >
+                  <div class="bg-white p-8 rounded shadow-lg flex flex-col justify-center align-center">
+                    <div class="flex justify-end">
+                      <!-- Botón para cerrar el modal -->
+                      <button
+                        id="closeModal2"
+                        class="text-gray-800 hover:text-gray-600 focus:outline-none"
+                      >
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="mt-4">
+                      <!-- Contenido del modal -->
+                      <img src="/Imgs/PROTOCOLO_MOVIMIENTO_PARABOLICO_1.png" alt="Protocolo movimiento parabólico" class="w-[50rem]">
+                    </div>
 
-              La combinación de estas dos componentes (horizontal y vertical) resulta en una trayectoria parabólica. La velocidad horizontal constante permite que el objeto se desplace horizontalmente a una velocidad constante. Simultáneamente, la velocidad vertical disminuye a medida que el objeto alcanza la altura máxima, donde la velocidad vertical es momentáneamente cero, y luego comienza a descender debido a la aceleración gravitatoria.
-          <p>
-          </details>
+                    <script>
+                      const openModal2 = document.getElementById("openModal2");
+                      const closeModal2 = document.getElementById("closeModal2");
+                      const modal2 = document.getElementById("modal2");
+                
+                      openModal2.addEventListener("click", () => {
+                        modal2.classList.remove("hidden");
+                      });
+                
+                      closeModal2.addEventListener("click", () => {
+                        modal2.classList.add("hidden");
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+          <div
+            class="mx-15 px-5 py-5 md:min-w-[80rem] hover:bg-blue-200 transition-all hover:rounded-3xl"
+          >
+            <details
+              class="group flex flex-col items-center justify-center max-w-100 rounded-xl"
+            >
+              <summary
+                class="flex justify-between items-center font-medium cursor-pointer list-none transition-all"
+              >
+                <span class="text-gray-500">
+                  Caída Libre</span
+                >
+                <span class="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shape-rendering="geometricPrecision"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div
+                class="group-open:animate-fadeIn md:max-w-100 transition-all md:max-w-[75rem] flex flex-col bg-gray-100"
+              >
+                <p
+                  class="text-neutral-600 mt-3 group-open:animate-fadeIn p-5 rounded"
+                >
+                La <strong>caída libre</strong> es un tipo de movimiento vertical de un objeto bajo la única influencia de la gravedad, sin tener en cuenta la resistencia del aire u otras fuerzas externas. 
+                <br>
+                <br>
+                 En este tipo de movimiento, un objeto se deja caer desde una cierta altura o se proyecta hacia arriba y luego cae. Durante la caída libre, el único factor que afecta al objeto es la fuerza gravitatoria, que provoca una aceleración constante hacia abajo.
+                </p>
+
+                <button
+                  id="openModal3"
+                  class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all m-5"
+                >
+                  Abrir imagen
+                </button>
+
+                <!-- Modal -->
+                <div
+                  id="modal3"
+                  class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50 hidden"
+                >
+                  <div class="bg-white p-8 rounded shadow-lg flex flex-col justify-center align-center">
+                    <div class="flex justify-end">
+                      <!-- Botón para cerrar el modal -->
+                      <button
+                        id="closeModal3"
+                        class="text-gray-800 hover:text-gray-600 focus:outline-none"
+                      >
+                        <svg
+                          class="w-6 h-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="mt-4">
+                      <!-- Contenido del modal -->
+                      <img src="/Imgs/PROTOCOLO_CAIDA_LIBRE.png" alt="Protocolo Caída libre" class="w-[50rem]">
+                    </div>
+
+                    <script>
+                      const openModal3 = document.getElementById("openModal3");
+                      const closeModal3 = document.getElementById("closeModal3");
+                      const modal3 = document.getElementById("modal3");
+                
+                      openModal3.addEventListener("click", () => {
+                        modal3.classList.remove("hidden");
+                      });
+                
+                      closeModal3.addEventListener("click", () => {
+                        modal3.classList.add("hidden");
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-
-  <!-- Footer -->
-  <footer class="bg-gray-300 text-gray-700 py-4 mt-auto w-screen">
-    <div class="container mx-auto text-center">
-      <p>Derechos de autor &copy; 2023 - Mi Sitio</p>
-    </div>
-  </footer>
-</body>
+    <!-- Footer -->
+    <footer class="bg-gray-300 text-gray-700 py-4 mt-auto w-screen">
+      <div class="container mx-auto text-center">
+        <p>Los Ruffinis &copy; 2023 - Teinco</p>
+      </div>
+    </footer>
+  </body>
 </html>

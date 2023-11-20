@@ -10,34 +10,43 @@
   </head>
   <body>
     <header class="bg-blue-500 text-white py-4 positiont">
-      <div class="container mx-auto">
-        <a href="/index.html">
+      <div
+        class="container mx-auto flex items-center"
+        style="justify-content: space-between"
+      >
+        <a href="/index.html" class="block">
           <h1 class="text-2xl font-bold outline-4 outline-blue-100">
             Caída libre
           </h1>
+        </a>
+        <a href="https://teinco.edu.co/">
+          <img
+            src="/Imgs/teinco_logo.png"
+            alt="teinco_logo"
+            class="rounded-full w-50"
+          />
         </a>
       </div>
     </header>
 
     <div class="block">
-        <div id="contenedor-juego" onclick="soltarPelota()">
-            <div id="plataforma"></div>
-            <div id="pelota"></div>
-            <div id="objeto"></div>
-            <div id="mensaje-ganador" class="oculto">¡Ganaste!</div>
-          </div>
-          <div id="mensaje" class="oculto">
-            <p>¡Éxito!</p>
-            <button onclick="ocultarMensaje()">Aceptar</button>
-          </div>
-          <script src="caida_libre.js"></script>
+      <div id="contenedor-juego" onclick="soltarPelota()">
+        <div id="plataforma"></div>
+        <div id="pelota"></div>
+        <div id="objeto"></div>
+        <div id="mensaje-ganador" class="oculto">¡Ganaste!</div>
+      </div>
+      <div id="mensaje" class="oculto">
+        <p>¡Éxito!</p>
+        <button onclick="ocultarMensaje()">Aceptar</button>
+      </div>
+      <script src="caida_libre.js"></script>
     </div>
 
-
     <!-- Footer -->
-    <footer class="bg-gray-300 text-gray-700 py-4 positionb">
+    <footer class="bg-gray-300 text-gray-700 py-4 mt-auto w-screen">
       <div class="container mx-auto text-center">
-        <p>Derechos de autor &copy; 2023 - Mi Sitio</p>
+        <p>Los Ruffinis &copy; 2023 - Teinco</p>
       </div>
     </footer>
   </body>
