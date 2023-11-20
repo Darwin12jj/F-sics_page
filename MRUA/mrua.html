@@ -2,34 +2,46 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Física</title>
+    <title>MRUA</title>
     <!-- Enlace al archivo CSS de Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        margin: auto;
+        background-color: #808080; /* Color de la carretera */
+        border: 2px solid #000;
+      }
+      #message {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 20px;
+        display: none;
+        color: #000;
+      }
+    </style>
 </head>
 <body>
 <!-- Header -->
   <header class="bg-blue-500 text-white py-4">
     <div class="container mx-auto">
       <a href="/index.html">
-        <h1 class="text-2xl font-bold outline-4 outline-blue-100">Página Física</h1>
+        <h1 class="text-2xl font-bold outline-4 outline-blue-100">M.R.U.A.</h1>
       </a>
     </div>
   </header>
 
 
 <!-- GAME -->
-  <div class="flex justify-center flex-col items-center h-[84vh]">
-    <button id="startButton" class="text-3xl mb-5 text-zinc-700 font-medium border-2 border-blue-400 rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center ">Start Game</button>
-    <button class="text-3xl mb-5 text-zinc-700 font-medium border-2 border-blue-400 rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center ">Evita estrellar</button>
-    <div class="w-auto flex justify-center mx-5">
-      <button id="restartButton" style="display: none;" class="border-2 border-blue-400 rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center">Reiniciar</button>
-    </div>
-    <canvas id="gameCanvas" width="500" height="400"></canvas>
-    <script src="game-mrua.js"></script>
-  </div>
-
-
+<canvas id="myCanvas" width="700" height="500" style="margin: 3.6% auto 0;"></canvas>
+<div id="message"></div>
+<button id="score" class="text-3xl mb-4 text-zinc-700 font-medium rounded-full px-4 py-4 align-middle hover:bg-blue-500 hover:text-white active:bg-blue-600 transition ease-in-out delay-75 hover:-translate-y-1 duration-300 text-center ">Puntuación: <span id="scoreValue">0</span></button>
+<script src="game-mrua.js"></script>
 
 
 <!-- Footer -->

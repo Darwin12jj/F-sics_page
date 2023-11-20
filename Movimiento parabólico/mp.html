@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimiento parabólico</title>
+    <!-- Enlace al archivo CSS de Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      canvas {
+        border: 1px solid black;
+        background-color: #3498db; /* Fondo azul claro como el área de juego */
+        display: block;
+        margin: auto;
+      }
+
+      #message {
+        position: absolute;
+        top: 20px; /* Ajusta la distancia desde la parte superior según sea necesario */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: 36px;
+        color: #fff; /* Texto blanco */
+        display: none;
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="bg-blue-500 text-white py-4">
+      <div class="container mx-auto">
+        <a href="/index.html">
+          <h1 class="text-2xl font-bold outline-4 outline-blue-100">
+            M.P.
+          </h1>
+        </a>
+      </div>
+    </header>
+
+    <!-- GAME -->
+    <canvas id="myCanvas" width="700" height="500" style="margin: 3.6% auto;"></canvas>
+    <div id="message"></div>
+    <script src="game-mp.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-300 text-gray-700 py-4">
+      <div class="container mx-auto text-center">
+        <p>Derechos de autor &copy; 2023 - Mi Sitio</p>
+      </div>
+    </footer>
+  </body>
+</html>
