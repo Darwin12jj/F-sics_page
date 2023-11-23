@@ -8,13 +8,13 @@ window.onload = function() {
     const carWidth = 40;
     const carHeight = 60;
 
-
+    //Automovil principal
     let car = {
       x: canvas.width / 2 - carWidth / 2,
       y: canvas.height - carHeight - 20,
       width: carWidth,
       height: carHeight,
-      color: "#ff0000" // Color del automóvil principal
+      color: "#ff0000"
     };
 
     let obstacles = [];
@@ -26,7 +26,7 @@ window.onload = function() {
     let speedBoost = false;
     let gameEnded = false;
     let roadOffset = 0;
-    let roadSpeed = 2; // Velocidad de la carretera (ajustable)
+    let roadSpeed = 1;
 
     function drawCar() {
       ctx.fillStyle = car.color;
@@ -57,11 +57,12 @@ window.onload = function() {
       }
     }
 
+    //Carretera
     function drawRoad() {
-      ctx.fillStyle = "#808080"; // Color de la carretera
+      ctx.fillStyle = "#808080";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#fff"; // Color de las líneas blancas
+      ctx.fillStyle = "#fff";
       const lineHeight = 40;
       const numLines = canvas.height / lineHeight;
       for (let i = 0; i < numLines; i++) {
@@ -74,6 +75,7 @@ window.onload = function() {
       roadOffset += roadSpeed;
     }
 
+    //Colisiones
     function checkCollision() {
       for (let obstacle of obstacles) {
         if (
@@ -88,6 +90,7 @@ window.onload = function() {
       }
     }
 
+    //Fin del juego
     function endGame() {
       gameEnded = true;
       document.removeEventListener("keydown", moveCar);
@@ -95,6 +98,7 @@ window.onload = function() {
       showMessage(`¡Perdiste! Puntuación: ${score}. Presiona ESPACIO para jugar de nuevo.`);
     }
 
+    //Reiniciar juego
     function restartGame(event) {
       if (event.keyCode === 32) {
         document.removeEventListener("keydown", restartGame);
@@ -136,6 +140,7 @@ window.onload = function() {
       }
     }
 
+    //Mover carro
     function moveCar(event) {
       const key = event.keyCode;
       if (key === 37) {

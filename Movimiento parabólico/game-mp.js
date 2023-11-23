@@ -4,7 +4,7 @@ window.onload = function() {
     const messageDiv = document.getElementById("message");
 
     const basket = {
-      x: canvas.width - 100, // Ajusta el tamaño de la cesta
+      x: canvas.width - 100, 
       y: canvas.height / 2 - 25,
       width: 80, // Ajusta el tamaño de la cesta
       height: 15, // Ajusta el tamaño de la cesta
